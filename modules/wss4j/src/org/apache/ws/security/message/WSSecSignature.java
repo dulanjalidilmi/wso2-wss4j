@@ -380,8 +380,9 @@ public class WSSecSignature extends WSSecBase {
         EnvelopeIdResolver resolver = (EnvelopeIdResolver)EnvelopeIdResolver.getInstance();
         resolver.setWsDocInfo(wsDocInfo);
         sig.addResourceResolver(resolver);
+        System.out.println("setId started....");
         sig.setId(wssConfig.getIdAllocator().createId("Signature-", sig));
-
+        System.out.println("setId done....");
         keyInfo = sig.getKeyInfo();
         keyInfoUri = wssConfig.getIdAllocator().createSecureId("KeyId-", keyInfo);
         keyInfo.setId(keyInfoUri);
